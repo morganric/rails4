@@ -1,9 +1,29 @@
 Rails4::Application.routes.draw do
+  resources :competitions
+
+  resources :designs
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'welcome#index'
+  root 'canvas#index'
+
+  post 'canvas' => 'canvas#index'
+  get 'canvas' => 'canvas#index'
+
+  get 'preferences' => 'canvas#preferences'
+  get 'canvas/connect' => 'canvas#connect'
+
+  get 'designs/:id/json' => 'designs#show', :defaults => { :format => 'json' }, :as => :json
+
+  post 'facebook_page_tab' => 'facebook_page_tabs#create', :as => 'new_fb_page_tab'
+
+  post 'mixcloud' => 'mixcloud#index'
+  get 'mixcloud' => 'mixcloud#index'
+
+  get 'mixcloud/search' => 'mixcloud#search'
+  post 'mixcloud/search' => 'mixcloud#search', :as => 'search'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

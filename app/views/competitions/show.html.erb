@@ -1,0 +1,20 @@
+<h1>
+  <%= @competition.title %>
+</h1>
+
+<% if @competition.live %> 
+<label class="label label-success" >Live</label>
+<% else %>
+<label class="label" >Finished</label>
+<% end %>
+
+<p>
+  <%= @competition.body.html_safe %>
+</p>
+
+<style type="text/css">
+  <%= @competition.css.html_safe %>
+</style>
+
+<%= link_to 'Edit', edit_competition_path(@competition) %> |
+<%= link_to 'Back', competitions_path %>

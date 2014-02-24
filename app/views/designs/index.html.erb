@@ -1,0 +1,33 @@
+<h1>Listing designs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Image</th>
+      <th>Slug</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @designs.each do |design| %>
+      <tr>
+        <td><%= design.image %></td>
+        <td><%= design.slug %></td>
+        <td><%= design.title %></td>
+        <td><%= design.description %></td>
+        <td><%= link_to 'Show', design %></td>
+        <td><%= link_to 'Edit', edit_design_path(design) %></td>
+        <td><%= link_to 'Destroy', design, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Design', new_design_path %>

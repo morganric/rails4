@@ -41,13 +41,16 @@ gem 'jbuilder', '~> 1.2'
 # gem 'capistrano', group: :development
 
 # Use debugger
-# gem 'debugger', group: [:development, :test]
+gem 'debugger', group: [:development, :test]
 
 gem 'figaro'
 gem 'foundation-rails'
 gem 'high_voltage'
 gem 'simple_form'
 gem 'thin'
+gem 'shopify_api'
+gem 'bootstrap-sass', '~> 3.1.1'
+gem 'mixcloud'
 
 group :development do
   gem 'better_errors'

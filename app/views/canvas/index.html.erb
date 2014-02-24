@@ -1,0 +1,77 @@
+<h1>Welcome</h1>
+
+<br>
+
+<%= link_to 'New Competition', new_competition_path %>
+
+<br>
+<hr/>
+<br>
+
+<h3>Select a competition to connect</h3>
+<br>
+
+<form>
+<%= collection_select(:competition, :id, @competitions, :id, :title, {:prompt => true}) %>
+</form>
+
+<br/>
+
+<button id="fb" class="btn btn-large">Connect</button>
+
+
+<div id="fb-root"></div>
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '263676013810410',
+          status     : true,
+          xfbml      : true
+        });
+
+        $('button#fb').on('click', function(){
+
+          var comp = $('#competition_id').val();
+          console.log(comp);
+
+
+           FB.ui({
+              method: 'pagetab',
+              redirect_uri: '/competitions',
+            }, function(response){
+
+                var comp = $('#competition_id').val();
+                console.log(comp);
+                var page_id = Object.keys(response.tabs_added)[0];
+                console.log(response);
+                console.log(response.tabs_added);
+                console.log(Object.keys(response.tabs_added)[0]);
+
+                // ajax call to post facebook_page_id and competition.id to a new model
+                $.ajax({
+                  type: "POST",
+                  url: "/facebook_page_tab",
+                  data: { facebook_page_tab: { competition_id: comp, facebook_page_id: page_id } },
+                  success: function() {
+                    console.log('success');
+                            },
+                  dataType: "jsonp"
+                });
+
+
+
+                });
+
+        });
+
+       
+      };
+
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/all.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    </script>

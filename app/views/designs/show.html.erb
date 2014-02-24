@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @design.image %>
+</p>
+
+<p>
+  <strong>Slug:</strong>
+  <%= @design.slug %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @design.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @design.description %>
+</p>
+
+<%= link_to 'Edit', edit_design_path(@design) %> |
+<%= link_to 'Back', designs_path %>
