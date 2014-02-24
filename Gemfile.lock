@@ -106,6 +106,7 @@ GEM
       json (>= 1.6.1)
       rest-client (>= 1.6.7)
     multi_json (1.8.4)
+    pg (0.17.1)
     polyglot (0.3.3)
     pry (0.9.12.6)
       coderay (~> 1.0)
@@ -199,6 +200,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   mixcloud
+  pg
   quiet_assets
   rails (= 4.0.2)
   rails_layout
