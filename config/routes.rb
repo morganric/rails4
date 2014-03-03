@@ -19,8 +19,8 @@ Rails4::Application.routes.draw do
 
   post 'facebook_page_tab' => 'facebook_page_tabs#create', :as => 'new_fb_page_tab'
 
-  post 'mixcloud' => 'mixcloud#index'
-  get 'mixcloud' => 'mixcloud#index'
+  post 'mashtag' => 'mashtag#index'
+  get 'mashtag' => 'mashtag#index'
 
   get 'mixcloud/search' => 'mixcloud#search'
   post 'mixcloud/search' => 'mixcloud#search', :as => 'search'

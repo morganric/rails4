@@ -1,4 +1,4 @@
-class MixcloudController < ApplicationController
+class MashtagController < ApplicationController
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
@@ -16,6 +16,14 @@ class MixcloudController < ApplicationController
     respond_to do |format|
       format.html 
     end
+  end
+
+  def mashtag
+
+    respond_to do |format|
+      format.html 
+    end
+
   end
 
   def search
