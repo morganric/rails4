@@ -70,8 +70,7 @@ $( document ).ready(function() {
 
 		        	afterCloudRender: function() {
 		        		$('#cloud a').attr('target','_blank');
-
-
+		        		console.log('blanks');
 		        	}
 		        });
 
