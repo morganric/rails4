@@ -14,17 +14,10 @@ class MashtagController < ApplicationController
 
 
     respond_to do |format|
-      format.html 
+      format.html {render layout: "mashtag"}
     end
   end
 
-  def mashtag
-
-    respond_to do |format|
-      format.html 
-    end
-
-  end
 
   def search
 

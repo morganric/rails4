@@ -52,6 +52,7 @@ gem 'thin'
 gem 'shopify_api'
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'mixcloud'
+gem "jqcloud-rails"
 
 group :development do
   gem 'better_errors'

@@ -8,7 +8,6 @@ $( document ).ready(function() {
 		console.log(url);
 
 		$('#cloud').html('');
-		$('#cloud').scrollTo();
 
 
 
@@ -68,6 +67,7 @@ $( document ).ready(function() {
 			$(function() {
 		        // When DOM is ready, select the container element and call the jQCloud method, passing the array of words as the first argument.
 		        $("#cloud").jQCloud(uniqueWeightedTags1);
+		        console.log(uniqueWeightedTags1);
 		      });
 
 
@@ -77,4 +77,7 @@ $( document ).ready(function() {
 	});
 
 });
+
+
+
 
