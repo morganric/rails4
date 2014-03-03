@@ -1,6 +1,6 @@
 $( document ).ready(function() {
 
-	$('form').submit(function(event) {
+	$('#submit').on('click', function(event) {
 		event.preventDefault();
 		var username = $('#username').val();
 		console.log(username);
