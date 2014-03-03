@@ -66,9 +66,21 @@ $( document ).ready(function() {
 
 			$(function() {
 		        // When DOM is ready, select the container element and call the jQCloud method, passing the array of words as the first argument.
-		        $("#cloud").jQCloud(uniqueWeightedTags1);
+		        $("#cloud").jQCloud(uniqueWeightedTags1, {
+
+		        	afterCloudRender: function() {
+		        		$('#cloud a').attr('target','_blank');
+
+
+		        	}
+		        });
+
 		         console.log(uniqueWeightedTags1);
+
+		         	   
+
 		      });
+
 
 
 		  }
@@ -76,11 +88,6 @@ $( document ).ready(function() {
 
 	});
 
-  $('div.jqcloud a').attr('target', '_blank');
-
-
 });
-
-
 
 
