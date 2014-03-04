@@ -1,4 +1,6 @@
 Rails4::Application.routes.draw do
+  
+    get 'mashtags/about' => 'mashtags#about', :as => 'mashtags_about'
   resources :competitions
 
   resources :designs

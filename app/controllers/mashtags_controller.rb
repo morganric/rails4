@@ -16,6 +16,14 @@ class MashtagsController < ApplicationController
     end
   end
 
+  def about
+    @mashtags = Mashtag.all.reverse
+
+    respond_to do |format|
+      format.html {render layout: "mashtag"}
+    end
+  end
+
   def show
     @mashtag = Mashtag.friendly.find(params[:id])
     @mixcloud_user = Mixcloud::User.new("http://api.mixcloud.com/#{@mashtag.user_name}")
