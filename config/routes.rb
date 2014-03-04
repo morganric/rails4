@@ -1,7 +1,10 @@
 Rails4::Application.routes.draw do
   
-    get 'mashtags/about' => 'mashtags#about', :as => 'mashtags_about'
+  get 'mashtags/about' => 'mashtags#about', :as => 'mashtags_about'
   resources :competitions
+
+  get 'mashtags/facebook' => 'mashtags#facebook'
+  post 'mashtags/facebook' => 'mashtags#facebook'
 
   resources :designs
   resources :mashtags

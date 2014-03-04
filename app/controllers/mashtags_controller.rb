@@ -44,7 +44,22 @@ class MashtagsController < ApplicationController
       flash[:notice] = "Mashtag successfully created"
       redirect_to @mashtag
     else
-      flash[:notice] = "Mashtag successfully created"
+      flash[:notice] = "Mashtag not created"
+      redirect_to mashtags_path
+    end
+
+  end
+
+  def facebook
+
+    @mashtag = Mashtag.find(:user_name => params[:facebook_page_tab][:user_name])
+    @mashtag.facebook_page_id = params[:facebook_page_tab][:facebook_page_id]
+
+    if @mashtag.save
+      flash[:notice] = "Facebook successfully created"
+      redirect_to @mashtag
+    else
+      flash[:notice] = "Facebookk not created"
       redirect_to mashtags_path
     end
 

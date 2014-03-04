@@ -5,18 +5,20 @@
       <div class="container">
        <h1>#MashTag</h1>
        <div cass="row">
-          <div class="col-sm-4">
+          <div class="col-sm-3">
        
-            <p>Enter a Mixcloud username below for a mashup tagcloud of the music they'll love!</p>
+            <p>Enter a Mixcloud username below for a mashup tagcloud of the music they love...</p>
                 mixcloud.com/<input type="text" id="username" label="mixcloud username" placeholder="username" />
                 <br/><br/>
                   <button id="submit-button" name="Tag me" class="btn btn-primary">#MashMeUp</button>
 
-                <br/><br/>
+                <br/>
+                <hr>
+                <br/>
 
-                 <p><button id="connect" class="btn btn-small">Add #MashTag to your Facebook Page</button>  </p>              
+                 <p class="fb-button" ><button id="connect" class="btn btn-small"><i class="icon icon-fb" ></i>Add Tab to Facebook Page</button>  </p>              
           </div>
-          <div class="col-sm-8" >
+          <div class="col-sm-9" >
             <div id="cloud-wrap" >
             <div id="cloud" style="width: 600px; height: 400px;"></div>
             </div>
@@ -45,7 +47,25 @@
                   FB.ui({
                   method: 'pagetab',
                   redirect_uri: 'https://apps.facebook.com/mashtag/'
-                }, function(response){});
+                }, function(response){
+
+                  var mashtag = $('#username').val();
+                  var page_id = Object.keys(response.tabs_added)[0];
+
+                  $.ajax({
+                  type: "POST",
+                  url: "/mashtag/facebook",
+                  data: { facebook_page_tab: { user_name: mashtag, facebook_page_id: page_id } },
+                  success: function() {
+                    console.log('success');
+                            },
+                  dataType: "jsonp"
+                });
+
+
+
+
+                });
 
              });
 

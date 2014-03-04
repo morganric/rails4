@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140303235110) do
+ActiveRecord::Schema.define(version: 20140304230456) do
 
   create_table "competitions", force: true do |t|
     t.string   "title"
@@ -56,8 +56,10 @@ ActiveRecord::Schema.define(version: 20140303235110) do
     t.string   "slug"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "facebook_page_id", default: "", null: false
   end
 
+  add_index "mashtags", ["facebook_page_id", "user_name"], name: "index_mashtags_on_facebook_page_id_and_user_name", unique: true
   add_index "mashtags", ["slug"], name: "index_mashtags_on_slug", unique: true
 
 end
