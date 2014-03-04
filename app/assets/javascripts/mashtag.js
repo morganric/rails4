@@ -1,7 +1,17 @@
 $( document ).ready(function() {
 
 	$('#submit-button').on('click', function(event) {
-		event.preventDefault();
+				event.preventDefault();
+				mashCloud();
+		});
+
+
+	if ($('#username').val() != '') {
+		mashCloud();
+	}
+
+	function mashCloud() {
+
 		var username = $('#username').val();
 		console.log(username);
 		var url = "https://api.mixcloud.com/"+username+"/listens/";
@@ -95,7 +105,7 @@ $( document ).ready(function() {
 		  }
 		});
 
-	});
+	}
 
 });
 

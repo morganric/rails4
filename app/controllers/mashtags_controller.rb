@@ -10,10 +10,21 @@ class MashtagsController < ApplicationController
 
   def index
     @mashtags = Mashtag.all.reverse
+     @mashtag = @mashtags.first
 
-    respond_to do |format|
-      format.html {render layout: "mashtag"}
+    if params[:signed_request] != nil
+      @signed_request = decode_data(signed_request)
+
+      if @signed_request["page"] != nil
+        page_id = @signed_request["page"]["id"]
+        @mashtag = Mashtag.where(:facebook_page_id => page_id)[0]["mashtag_id"]
+      end
     end
+
+      respond_to do |format|
+        format.html 
+      end
+
   end
 
   def about
@@ -84,7 +95,7 @@ class MashtagsController < ApplicationController
   private
 
    def mashtag_params
-      params.require(:mashtag).permit(:user_name, :slug)
+      params.require(:mashtag).permit(:user_name, :slug, :facebook_tab_id)
   end
 
   def base64_url_decode str
@@ -102,7 +113,6 @@ class MashtagsController < ApplicationController
     search = Mixcloud::Search.find_artist(term)
     return search
   end
-
  
 
 end
