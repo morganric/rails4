@@ -11,6 +11,10 @@
                 mixcloud.com/<input type="text" id="username" label="mixcloud username" placeholder="username" />
                 <br/><br/>
                   <button id="submit-button" name="Tag me" class="btn btn-primary">#MashMeUp</button>
+
+                <br/><br/>
+
+                 <p><button id="connect" class="btn btn-small">Add #MashTag to your Facebook Page</button>  </p>              
           </div>
           <div class="col-sm-8" >
             <div id="cloud-wrap" >
@@ -36,6 +40,14 @@
             });
 
             // Facebook JS UI here
+            $("#connect").on("click", function() {
+
+                  FB.ui({
+                  method: 'pagetab',
+                  redirect_uri: 'https://apps.facebook.com/mashtag/'
+                }, function(response){});
+
+             });
 
             
           };

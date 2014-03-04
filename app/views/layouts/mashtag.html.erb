@@ -30,12 +30,11 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html">#MashTag</a>
+          <%= link_to "#MashTag", mashtags_path, :class => "navbar-brand" %>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><%= link_to "Home", mashtags_path %></a></li>
-            <li class=""><%= link_to "About", mashtags_about_path %></a></li>
+            <li class=""><%= link_to "About", mashtags_about_path %></li>
           </ul>
         </div><!--/.navbar-collapse -->
       </div>
