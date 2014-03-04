@@ -22,7 +22,7 @@ class MashtagsController < ApplicationController
     end
 
       respond_to do |format|
-        format.html 
+        format.html  {render layout: "mashtag"}
       end
 
   end
@@ -68,10 +68,14 @@ class MashtagsController < ApplicationController
 
     if @mashtag.save
       flash[:notice] = "Facebook successfully created"
-      redirect_to @mashtag
+      respond_to do |format|
+        format.js { render layout: "mashtag" }
+      end
     else
       flash[:notice] = "Facebookk not created"
-      redirect_to mashtags_path
+      respond_to do |format|
+        format.js { render layout: "mashtag" }
+      end
     end
 
   end
