@@ -72,6 +72,8 @@ GEM
     foundation-rails (5.1.1.0)
       railties (>= 3.1.0)
       sass (>= 3.2.0)
+    friendly_id (5.0.3)
+      activerecord (>= 4.0.0)
     guard (2.5.1)
       formatador (>= 0.2.4)
       listen (~> 2.6)
@@ -200,6 +202,7 @@ DEPENDENCIES
   debugger
   figaro
   foundation-rails
+  friendly_id (~> 5.0.0)
   guard-bundler
   guard-rails
   high_voltage

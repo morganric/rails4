@@ -2,6 +2,7 @@ Rails4::Application.routes.draw do
   resources :competitions
 
   resources :designs
+  resources :mashtags
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -18,9 +19,6 @@ Rails4::Application.routes.draw do
   get 'designs/:id/json' => 'designs#show', :defaults => { :format => 'json' }, :as => :json
 
   post 'facebook_page_tab' => 'facebook_page_tabs#create', :as => 'new_fb_page_tab'
-
-  post 'mashtag' => 'mashtag#index'
-  get 'mashtag' => 'mashtag#index'
 
   get 'mixcloud/search' => 'mixcloud#search'
   post 'mixcloud/search' => 'mixcloud#search', :as => 'search'

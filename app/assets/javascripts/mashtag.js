@@ -9,6 +9,16 @@ $( document ).ready(function() {
 
 		$('#cloud').html('');
 
+		$.ajax({
+		  type: "POST",
+		  url: "/mashtags",
+		  dataType: "jsonp",
+		  data: {user_name: username},
+		  success: function(data) {
+		  	console.log("added: "+username);
+		  }
+
+		 });
 
 
 		$.ajax({
