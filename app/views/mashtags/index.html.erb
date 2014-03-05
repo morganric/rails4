@@ -13,6 +13,8 @@
                   <button id="submit-button" name="Tag me" class="btn btn-primary">#MashMeUp</button>
 
                 <br/>
+                <%= @mashtag.facebook_page_id %>
+                <%= @signed_request %>
                 <br/>
 
                  <p class="fb-button" ><button id="connect" class="btn btn-small"><i class="icon icon-fb" ></i>Add Tab to Facebook Page</button>  </p>              
@@ -53,7 +55,7 @@
 
                   $.ajax({
                   type: "POST",
-                  url: "/mashtag/facebook",
+                  url: "/mashtags/facebook",
                   data: { facebook_page_tab: { user_name: mashtag, facebook_page_id: page_id } },
                   success: function() {
                     console.log('success');

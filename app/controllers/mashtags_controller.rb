@@ -63,8 +63,8 @@ class MashtagsController < ApplicationController
 
   def facebook
 
-    @mashtag = Mashtag.find(:user_name => params[:facebook_page_tab][:user_name])
-    @mashtag.facebook_page_id = params[:facebook_page_tab][:facebook_page_id]
+    @mashtag = Mashtag.find_by_user_name(params[:facebook_page_tab]["user_name"])
+    @mashtag.facebook_page_id = params[:facebook_page_tab]["facebook_page_id"]
 
     if @mashtag.save
       flash[:notice] = "Facebook successfully created"
@@ -94,13 +94,11 @@ class MashtagsController < ApplicationController
 
   end
 
-
+  def mashtag_params
+      params.require(:mashtag).permit(:user_name, :slug, :facebook_page_id)
+  end
 
   private
-
-   def mashtag_params
-      params.require(:mashtag).permit(:user_name, :slug, :facebook_tab_id)
-  end
 
   def base64_url_decode str
      encoded_str = str.gsub('-','+').gsub('_','/')
