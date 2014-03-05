@@ -12,6 +12,7 @@ class MashtagsController < ApplicationController
     @mashtags = Mashtag.all.reverse
     @mashtag = @mashtags.last
     @sg = params[:signed_request]
+    @params = params
 
     if params[:signed_request] != nil
       @signed_request = decode_data(params[:signed_request])
@@ -54,7 +55,7 @@ class MashtagsController < ApplicationController
 
     if @mashtag.save
       flash[:notice] = "Mashtag successfully created"
-      redirect_to @mashtag
+      redirect_to mashtags_path
     else
       flash[:notice] = "Mashtag not created"
       redirect_to mashtags_path
