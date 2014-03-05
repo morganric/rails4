@@ -9,12 +9,15 @@ class MashtagsController < ApplicationController
   include MashtagsHelper
 
   def index
+    require 'koala'
     @mashtags = Mashtag.all.reverse
     @mashtag = @mashtags.last
     @sg = params[:signed_request]
     @params = params
-    oauth = Koala::Facebook::OAuth.new(APP_ID, APP_CODE)
-    signed_request = oauth.parse_signed_request(params["signed_request"])
+    oauth = Koala::Facebook::OAuth.new(1412697118982924, 'ba3b456261f4e9dfed0beb91a73000b3')
+    if params[:signed_request]
+      signed_request = oauth.parse_signed_request(params["signed_request"])
+    end
 
     if params[:signed_request] != nil
       @signed_request = decode_data(params[:signed_request])
