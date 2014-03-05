@@ -11,6 +11,7 @@ class CompetitionsController < ApplicationController
   # GET /competitions/1
   # GET /competitions/1.json
   def show
+    @params = params
   end
 
   # GET /competitions/new
