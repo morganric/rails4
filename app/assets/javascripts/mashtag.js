@@ -1,10 +1,5 @@
 $( document ).ready(function() {
 
-	$('#submit-button').on('click', function(event) {
-				event.preventDefault();
-				mashCloud();
-		});
-
 	function mashCloud() {
 
 		var username = $('#username').val();
@@ -103,6 +98,11 @@ $( document ).ready(function() {
 	}
 
 mashCloud();
+
+	$('#submit-button').on('click', function(event) {
+				event.preventDefault();
+				mashCloud();
+		});
 
 });
 
