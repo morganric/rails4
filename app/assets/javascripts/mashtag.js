@@ -5,8 +5,6 @@ $( document ).ready(function() {
 				mashCloud();
 		});
 
-	  mashCloud();
-
 	function mashCloud() {
 
 		var username = $('#username').val();
@@ -103,6 +101,8 @@ $( document ).ready(function() {
 		});
 
 	}
+
+mashCloud();
 
 });
 
