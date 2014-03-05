@@ -5,10 +5,7 @@ $( document ).ready(function() {
 				mashCloud();
 		});
 
-
-	if ($('#username').val() != '') {
-		mashCloud();
-	}
+	  mashCloud();
 
 	function mashCloud() {
 
