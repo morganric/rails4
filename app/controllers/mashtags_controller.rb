@@ -13,6 +13,8 @@ class MashtagsController < ApplicationController
     @mashtag = @mashtags.last
     @sg = params[:signed_request]
     @params = params
+    oauth = Koala::Facebook::OAuth.new(APP_ID, APP_CODE)
+    signed_request = oauth.parse_signed_request(params["signed_request"])
 
     if params[:signed_request] != nil
       @signed_request = decode_data(params[:signed_request])
@@ -97,7 +99,7 @@ class MashtagsController < ApplicationController
   end
 
   def mashtag_params
-      params.require(:mashtag).permit(:user_name, :slug, :facebook_page_id)
+      params.require(:mashtag).permit(:user_name, :slug, :facebook_page_id, :signed_request)
   end
 
   private
