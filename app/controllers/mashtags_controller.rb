@@ -10,11 +10,11 @@ class MashtagsController < ApplicationController
 
   def index
     @mashtags = Mashtag.all.reverse
-    @mashtag = @mashtags.first
-    
+    @mashtag = @mashtags.last
+    @sg = params[:signed_request]
 
     if params[:signed_request] != nil
-      @signed_request = decode_data(signed_request)
+      @signed_request = decode_data(params[:signed_request])
 
       if @signed_request["page"] != nil
         page_id = @signed_request["page"]["id"]

@@ -14,7 +14,8 @@
 
                 <br/>
                 <%= @mashtag.facebook_page_id %>
-                <% if  @signed_request != nil %><%= @signed_request["page"]["id"] %><% end %>
+                <% if @sg != nil %><%= @sg %><% end %>
+                <% if @signed_request != nil %><%= @signed_request["page"]["id"] %><% end %>
                 <br/>
 
                  <p class="fb-button" ><button id="connect" class="btn btn-small"><i class="icon icon-fb" ></i>Add Tab to Facebook Page</button>  </p>              
