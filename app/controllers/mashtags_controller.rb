@@ -26,6 +26,10 @@ class MashtagsController < ApplicationController
           format.html 
         end
       end
+
+    else
+      @mashtag = Mashtag.first
+
     end
 
 
