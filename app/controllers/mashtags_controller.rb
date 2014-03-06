@@ -19,7 +19,7 @@ class MashtagsController < ApplicationController
       if @signed_request["page"] != nil
         page_id = @signed_request["page"]["id"]
         mashtag_id = Mashtag.where(:facebook_page_id => page_id)[0]["id"]
-        @mashtag = Competition.find(competition_id)
+        @mashtag = Competition.find(mashtag_id)
         redirect_to mashtag_path(@mashtag)
       else
         respond_to do |format|
