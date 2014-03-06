@@ -17,6 +17,7 @@
             <div id="cloud-wrap" >
             <h2 class="username"><%= link_to @mixcloud_user.name, "//mixcloud.com/#{@mixcloud_user.name}", :target => "_blank" %></h2>
             <div id="cloud" style="width: 600px; height: 400px;"></div>
+            <p class="hidden"><%= @params[:signed_request] %><br/><%= @params %></p>
             </div>
           </div>
         </div>
