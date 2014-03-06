@@ -3,7 +3,7 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-       <h1>#MashTag: <%= link_to "#{@mashtag.user_name.capitalize}", "//mixcloud.com/#{@mashtag.user_name}", :target => "_blank" %></h1>
+       <h1>#MashTag: <span id="current_name"><%= link_to "#{@mashtag.user_name.capitalize}", "//mixcloud.com/#{@mashtag.user_name}", :target => "_blank" %></span></h1>
        <div cass="row">
           <div class="col-sm-3">
        
@@ -13,17 +13,12 @@
                   <button id="submit-button" name="Tag me" class="btn btn-primary">#MashMeUp</button>
 
                 <br/>
-                fb id = <%= @mashtag.facebook_page_id %><br/>
-                params = <%= @params %><br/>
-                SR = <%= @params[:signed_request] %>
-                <br/>
-                <br/>
 
                  <p class="fb-button" ><button id="connect" class="btn btn-small"><i class="icon icon-fb" ></i>Add Facebook Page Tab</button>  </p>              
           </div>
           <div class="col-sm-9" >
             <div id="cloud-wrap" >
-            <div id="cloud" style="width: 600px; height: 400px;"></div>
+            <div id="cloud" style="width: 500px; height: 350px;"></div>
             </div>
           </div>
         </div>

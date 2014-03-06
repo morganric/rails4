@@ -6,6 +6,7 @@ $( document ).ready(function() {
 		console.log(username);
 		var url = "https://api.mixcloud.com/"+username+"/listens/";
 		console.log(url);
+		$('#current_name').html(username);
 
 		$('#cloud').html('');
 
