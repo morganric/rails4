@@ -5,18 +5,14 @@
       <div class="container">
        <h2>#MashTag: <span id="current_name"><%= link_to "#{@mashtag.user_name.capitalize}", "//mixcloud.com/#{@mashtag.user_name}", :target => "_blank" %></span></h2>
        <div cass="row">
-          <div class="col-sm-3">
        
             <p>Enter any Mixcloud username below...</p>
                 mixcloud.com/<input type="text" id="username" label="mixcloud username" placeholder="" value="<%= @mashtag.user_name %>" />
                 <br/><br/>
                   <button id="submit-button" name="Tag me" class="btn btn-primary">#MashMeUp</button>
-                 <p class="fb-button" ><button id="connect" class="btn btn-small"><i class="icon icon-fb" ></i>Add Facebook Page Tab</button>  </p>              
+                 <button id="connect" class="btn btn-small"><i class="icon icon-fb" ></i>Add Facebook Page Tab</button>              
           </div>
-          <div class="col-sm-9" >
-            <div id="cloud-wrap" >
             <div id="cloud" style="width: 500px; height: 350px;"></div>
-            </div>
           </div>
         </div>
       </div>
