@@ -1,14 +1,5 @@
-<h1>Welcome</h1>
+<h1>Welcome to Emblzn Compeitions </h1>
 
-SR - <%= @params[:signed_request] %>
-
-<br>
-
-<%= link_to 'New Competition', new_competition_path %>
-
-<br>
-<hr/>
-<br>
 
 <h3>Select a competition to connect</h3>
 <br>
@@ -20,6 +11,20 @@ SR - <%= @params[:signed_request] %>
 <br/>
 
 <button id="fb" class="btn btn-large">Connect</button>
+
+<h3>Competitions</h2>
+
+<br>
+<hr/>
+<br>
+
+
+<ul>
+<% @competitions.each do |competition| %>
+  <li><%= link_to competition.title, competition %></li>
+<% end %>
+</ul>
+
 
 
 <div id="fb-root"></div>

@@ -8,7 +8,7 @@ class CanvasController < ApplicationController
   include ApplicationHelper
 
   def index
-    @competitions = Competition.all
+    @competitions = Competition.where(:live => true)
     @params = params
     signed_request = params[:signed_request]
 
