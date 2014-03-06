@@ -15,8 +15,7 @@
                 <br/>
                 <%= @mashtag.facebook_page_id %>
                 <%= @params %>
-                <% if @sg != nil %><%= @sg %><% end %>
-                <% if @signed_request != nil %><%= @signed_request["page"]["id"] %><% end %>
+                <%= @params[:signed_request] %>
                 <br/>
                 <br/>
 
