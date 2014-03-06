@@ -19,7 +19,7 @@ class CanvasController < ApplicationController
         page_id = @signed_request["page"]["id"]
         competition_id = FacebookPageTab.where(:facebook_page_id => page_id)[0]["competition_id"]
         @competition = Competition.find(competition_id)
-        redirect_to competition_path #competition_path(@competition)
+        redirect_to competition_path(@competition)
       else
         respond_to do |format|
           format.html 
