@@ -9,31 +9,29 @@ class MashtagsController < ApplicationController
   include MashtagsHelper
 
   def index
-
+    @mashtags = Mashtag.all.order(:views).reverse
+    @mashtag = Mashtag.first
     @params = params
     signed_request = params[:signed_request]
 
-    if signed_request
-      @signed_request = decode_data(signed_request)
+    # if signed_request
+    #   @signed_request = decode_data(signed_request)
 
-      if @signed_request["page"] != nil
-        page_id = @signed_request["page"]["id"]
-        mashtag_id = Mashtag.where(:facebook_page_id => page_id)[0]["id"]
-        @mashtag = Competition.find(mashtag_id)
-        redirect_to mashtag_path(@mashtag)
-      else
-        respond_to do |format|
-          format.html 
-        end
-      end
+    #   if @signed_request["page"] != nil
+    #     page_id = @signed_request["page"]["id"]
+    #     mashtag_id = Mashtag.where(:facebook_page_id => page_id)[0]["id"]
+    #     @mashtag = Competition.find(mashtag_id)
+    #     redirect_to mashtag_path(@mashtag)
+    #   else
+    #     respond_to do |format|
+    #       format.html 
+    #     end
+    #   end
 
-    else
-      @mashtag = Mashtag.first
+    # else
+    #   @mashtag = Mashtag.first
 
-    end
-
-
-
+    # end
 
     # require 'koala'
     # @mashtags = Mashtag.all.reverse
@@ -73,6 +71,7 @@ class MashtagsController < ApplicationController
     @mixcloud_user = Mixcloud::User.new("http://api.mixcloud.com/#{@mashtag.user_name}")
 
     cloud(@mashtag)
+    views(@mashtag)
 
     respond_to do |format|
       format.html { render layout: "mashtag" }

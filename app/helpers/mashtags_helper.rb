@@ -13,6 +13,10 @@ module MashtagsHelper
 	    data = ActiveSupport::JSON.decode base64_url_decode(payload)
 	  end
 
+	def views(mashtag)
+		mashtag.views = mashtag.views + 1
+	end
+
 
 	def cloud (mashtag)
 		@mixcloud_user = Mixcloud::User.new("http://api.mixcloud.com/#{mashtag.user_name}")
@@ -39,12 +43,22 @@ module MashtagsHelper
 
 		@tags_names_weighted = @tags_names.inject(Hash.new(0)) {|h,i| h[i] += 1; h }
 
-		@word_array = []		
+		@word_array = []
+		@tag_array = []		
 
-		@tags_names_weighted.map { |name|
+		@tags_names_weighted.each do |name|
 
-			@word_array << {"text" => name[0], "weight" => name[1]}
-		}
+			@tags.each  do |tag|
+
+				if tag["name"] === name[0]
+					@link = tag["url"].to_s
+					break
+				end
+			end 
+			
+			@word_array << {"text" => name[0], "weight" => name[1], "link" => @link }
+		end
+
 
 	end
 

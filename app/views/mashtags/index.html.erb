@@ -4,7 +4,7 @@
     <div class="jumbotron">
       <div class="container">
        <h2>#MashTag: <span id="current_name"><%= link_to "#{@mashtag.user_name.capitalize}", "//mixcloud.com/#{@mashtag.user_name}", :target => "_blank" %></span></h2>
-       <div cass="row">
+          <div cass="row">
        
             <p>Enter any Mixcloud username below...</p>
                 mixcloud.com/<input type="text" id="username" label="mixcloud username" placeholder="" value="<%= @mashtag.user_name %>" />
@@ -14,6 +14,18 @@
           </div>
           <br/>
             <div id="cloud" style="width: 500px; height: 400px;"></div>
+            <p class="hidden">
+            <%= @params %>
+            <br/>
+            <%= @params["signed_request"] %>
+            </p>
+            <div class="row hidden">
+              <ol>
+              <% @mashtags.each do |mashtag| %>
+                <li><%= mashtag.user_name %></li>
+              <% end %>
+              </ol>
+            </div>
           </div>
         </div>
       </div>

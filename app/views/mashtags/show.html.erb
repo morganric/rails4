@@ -8,7 +8,8 @@
           <div class="col-sm-4">
        
             <p>Enter a Mixcloud username below for a mashup tagcloud of the music you love!</p>
-                mixcloud.com/<input type="text" id="username" label="mixcloud username" placeholder="username" />
+                mixcloud.com/<input type="text" id="username" label="mixcloud username" placeholder="" value=" <%= @mixcloud_user.username %>" />
+                 
                 <br/><br/>
                   <button id="submit-button" name="Tag me" class="btn btn-primary">#MashMeUp</button>
           </div>
