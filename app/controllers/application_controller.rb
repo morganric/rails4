@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
     session[:signed_request]['page']['id'] if session[:signed_request]
   end	
 
-  helper_method :fb_liked?, :fb_admin?
+  helper_method :fb_liked?, :fb_admin?, :fb_page?
  
   before_filter do
     if params[:signed_request]
