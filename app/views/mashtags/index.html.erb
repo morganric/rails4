@@ -67,6 +67,16 @@
                 });
 
 
+                  $.ajax({
+                  type: "POST",
+                  url: "/facebook_page_tabs",
+                  data: { facebook_page_tab: { mashtag_id: '<%= MashTag.find_by_user_name(mashtag).id', facebook_page_id: page_id } },
+                  success: function() {
+                    console.log('success');
+                            },
+                  dataType: "jsonp"
+                });
+
 
 
                 });

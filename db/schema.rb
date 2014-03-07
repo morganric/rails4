@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140306214656) do
+ActiveRecord::Schema.define(version: 20140307223554) do
 
   create_table "competitions", force: true do |t|
     t.string   "title"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20140306214656) do
     t.string   "facebook_page_id", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "mashtag_id"
   end
 
   create_table "friendly_id_slugs", force: true do |t|
