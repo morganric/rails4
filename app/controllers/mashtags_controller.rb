@@ -14,7 +14,7 @@ class MashtagsController < ApplicationController
     @params = params
     signed_request = params[:signed_request]
 
-    @page_id = fb_page?
+    @page_id = #fb_page?
 
     # if signed_request
     #   @signed_request = decode_data(signed_request)
