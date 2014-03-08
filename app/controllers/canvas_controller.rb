@@ -12,8 +12,8 @@ class CanvasController < ApplicationController
     @params = params
     signed_request = params[:signed_request]
     @competition = Competition.first
-    @app_data = "testing"
-    redirect_to(controller: 'competitions', action: 'show', id: @competition.id.to_param, app_data: @app_data.to_param)
+    # @app_data = "testing"
+    # redirect_to(controller: 'competitions', action: 'show', id: @competition.id.to_param, app_data: @app_data.to_param)
      
 
     if signed_request
