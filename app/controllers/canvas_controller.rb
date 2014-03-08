@@ -18,8 +18,15 @@ class CanvasController < ApplicationController
       if @signed_request["page"] != nil
         page_id = @signed_request["page"]["id"]
         competition_id = FacebookPageTab.where(:facebook_page_id => page_id)[0]["competition_id"]
+        mashtag = FacebookPageTab.where(:facebook_page_id => page_id)[0]["mashtag_id"]
+        @mashtag = Mashtag.find_by_user_name(mashtag)
         @competition = Competition.find(competition_id)
-        redirect_to competition_path(@competition)
+
+        if @competition
+          redirect_to competition_path(@competition)
+        else
+          redirect_to mashtag_path(@mashtag)
+        end
       else
         respond_to do |format|
           format.html 
