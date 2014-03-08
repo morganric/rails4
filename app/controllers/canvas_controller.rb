@@ -14,6 +14,7 @@ class CanvasController < ApplicationController
 
     if signed_request
       @signed_request = decode_data(signed_request)
+      @app_data = @signed_request[:app_data]
 
       if @signed_request["page"] != nil
         page_id = @signed_request["page"]["id"]
