@@ -11,6 +11,7 @@ class CanvasController < ApplicationController
     @competitions = Competition.where(:live => true)
     @params = params
     signed_request = params[:signed_request]
+     
 
     if signed_request
       @signed_request = decode_data(signed_request)
@@ -24,11 +25,12 @@ class CanvasController < ApplicationController
         @competition = Competition.find(competition_id)
 
         if @competition
-          redirect_to(controller: 'competition', action: 'show', competition: @competition.to_param, app_data: @app_data.to_param)
+          redirect_to(controller: 'competitions', action: 'show', id: @competition.id.to_param, app_data: @app_data.to_param)
         else
           redirect_to mashtag_path(@mashtag)
         end
       else
+       
         respond_to do |format|
           format.html 
         end
