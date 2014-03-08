@@ -24,7 +24,7 @@ class CanvasController < ApplicationController
         @competition = Competition.find(competition_id)
 
         if @competition
-          redirect_to competition_path(@competition)
+          redirect_to(controller: 'competition', action: 'show', competition: @competition.to_param, app_data: @app_data.to_param)
         else
           redirect_to mashtag_path(@mashtag)
         end
