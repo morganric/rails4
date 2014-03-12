@@ -1,7 +1,7 @@
 <h1>Hi</h1>
 
-<%= @client %>
-<%= @user %>
+
+<%= @user.get('/me').username %>
 
 
  <% @tracks.each do |track| %>
