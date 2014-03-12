@@ -22,7 +22,7 @@ class SoundcloudController < ApplicationController
       :password      => 'Lionking'
     })
 
-    @user_tracks = @user.get('/me').tracks
+    # @user_tracks = @user.get('/me').tracks
   
   end
 
