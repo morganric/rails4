@@ -21,6 +21,8 @@ class SoundcloudController < ApplicationController
       :username      => 'morganric@gmail.com',
       :password      => 'Lionking'
     })
+
+    @user_tracks = @user.get('/me').tracks
   
   end
 
