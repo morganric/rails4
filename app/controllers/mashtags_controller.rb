@@ -53,10 +53,10 @@ class MashtagsController < ApplicationController
     #     @mashtag = Mashtag.where(:facebook_page_id => page_id)[0]["mashtag_id"]
     #   end
     # end
-
-    #   respond_to do |format|
-    #     format.html  {render layout: "mashtag"}
-    #   end
+    
+      respond_to do |format|
+        format.html  {render layout: "mashtag"}
+      end
 
   end
 
