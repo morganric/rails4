@@ -6,6 +6,9 @@ Rails4::Application.routes.draw do
   get 'mashtags/facebook' => 'mashtags#facebook'
   post 'mashtags/facebook' => 'mashtags#facebook'
 
+  get 'soundcloud' => 'soundcloud#index'
+  post 'soundcloud' => 'soundcloud#index'
+
   resources :designs
   resources :mashtags
 

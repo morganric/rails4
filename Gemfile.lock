@@ -88,8 +88,16 @@ GEM
       guard (~> 2.2)
     guard-rails (0.5.0)
       guard (>= 2.0.0)
+    hashie (2.0.5)
     high_voltage (2.1.0)
     hike (1.2.3)
+    httmultiparty (0.3.12)
+      httparty (>= 0.7.3)
+      mimemagic
+      multipart-post
+    httparty (0.13.0)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     hub (1.12.0)
     i18n (0.6.9)
     jbuilder (1.5.3)
@@ -116,11 +124,13 @@ GEM
       treetop (~> 1.4.8)
     method_source (0.8.2)
     mime-types (1.25.1)
+    mimemagic (0.2.1)
     minitest (4.7.5)
     mixcloud (1.0.0)
       json (>= 1.6.1)
       rest-client (>= 1.6.7)
     multi_json (1.8.4)
+    multi_xml (0.5.5)
     multipart-post (2.0.0)
     nio4r (1.0.0)
     pg (0.17.1)
@@ -170,6 +180,9 @@ GEM
       actionpack (>= 4.0.0, < 4.1)
       activemodel (>= 4.0.0, < 4.1)
     slop (3.4.7)
+    soundcloud (0.3.2)
+      hashie (~> 2.0)
+      httmultiparty (~> 0.3.0)
     sprockets (2.11.0)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -230,6 +243,7 @@ DEPENDENCIES
   sass-rails (~> 4.0.0)
   shopify_api
   simple_form
+  soundcloud
   sqlite3
   thin
   turbolinks
