@@ -1,5 +1,9 @@
 <h1></h1>
 
+<ul id="tracks">
+	
+</ul>
+
 <span id="soundcloud"><%= image_tag 'http://connect.soundcloud.com/2/btn-connect-sc-l.png' %></span>
 <br/>
 <hr/>
@@ -20,6 +24,18 @@ $('#soundcloud').on('click', function() {
 	  SC.get('/me', function(me) { 
 	    $('h1').html('Hello, ' + me.username); 
 	  });
+
+	  SC.get('/me/tracks', function(tracks) { 
+	    var tracks = tracks;
+	    
+		$.each(tracks, function( index, value ) {
+		  $('ul#tracks').append("<li>" index + ": " + value.download_url "</li>" );
+		});
+
+	    return tracks;
+
+	  });
+
 	});	
 
 });
