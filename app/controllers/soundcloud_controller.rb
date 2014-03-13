@@ -31,7 +31,7 @@ class SoundcloudController < ApplicationController
 
     if @mixcloud_code != ''
       respond_to do |format|
-        format.js 
+        format.html
       end
     else
       respond_to do |format|
