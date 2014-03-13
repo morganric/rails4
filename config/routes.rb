@@ -6,11 +6,20 @@ Rails4::Application.routes.draw do
   get 'mashtags/facebook' => 'mashtags#facebook'
   post 'mashtags/facebook' => 'mashtags#facebook'
 
-  get 'soundcloud' => 'soundcloud#index'
-  post 'soundcloud' => 'soundcloud#index'
+  scope :constraints => { :protocol => 'https://' } do
 
-  get 'soundcloud/mixcloud' => 'soundcloud#mixcloud', :as => 'mixcloud'
-  post 'soundcloud/mixcloud' => 'soundcloud#mixcloud', :as => 'mixcloud_post'
+    get 'soundcloud' => 'soundcloud#index'
+    post 'soundcloud' => 'soundcloud#index'
+
+    get 'soundcloud/mixcloud' => 'soundcloud#mixcloud', :as => 'mixcloud'
+    post 'soundcloud/mixcloud' => 'soundcloud#mixcloud', :as => 'mixcloud_post'
+
+  end
+
+    get 'soundcloud' => 'soundcloud#index'
+    post 'soundcloud' => 'soundcloud#index'
+
+
 
   resources :designs
   resources :mashtags
