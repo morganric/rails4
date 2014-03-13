@@ -23,7 +23,7 @@ $('#soundcloud').on('click', function() {
 	$(this).toggle();
 
 	SC.connect(function() {
-  	$('#mixcloud').toggle();
+	  	$('#mixcloud').removeClass('hidden');
 	  SC.get('/me', function(me) { 
 	    $('h1').html('Hello, ' + me.username); 
 	  });
