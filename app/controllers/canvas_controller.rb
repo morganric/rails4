@@ -14,7 +14,6 @@ class CanvasController < ApplicationController
     @competition = Competition.first
     # @app_data = "testing"
     # redirect_to(controller: 'competitions', action: 'show', id: @competition.id.to_param, app_data: @app_data.to_param)
-     
 
     if signed_request
       @signed_request = decode_data(signed_request)
