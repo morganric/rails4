@@ -5,9 +5,9 @@
 
 <script type="text/javascript">
 
-var mixcloud_post_url = "<%= mixcloud_post_url %>";
+var mixcloud_post_url = "<%= j mixcloud_post_url.to_json.html_safe %>";
 console.log(mixcloud_post_url);
-var mixcloud_code = "<%= @mixcloud_code %>";
+var mixcloud_code = "<%= j @mixcloud_code.to_json.html_safe %>";
 console.log(mixcloud_code);
 
 var access_url = "https://www.mixcloud.com/oauth/access_token?client_id=wpLF5wDyDUQYQJnrFY&redirect_uri=" + mixcloud_post_url + "&client_secret=jnu8tAF89tecB99ztdautCUduWXnQTUj
