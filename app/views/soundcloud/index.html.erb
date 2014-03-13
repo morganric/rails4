@@ -27,11 +27,13 @@ $('#soundcloud').on('click', function() {
 
 	  SC.get('/me/tracks', function(tracks) { 
 	    var tracks = tracks;
-	    return tracks;
 		
 		for (var i = 0; i < tracks.length; i++) {
 			$('ul#tracks').append("<li>" + tracks[i].title + ": " + tracks[i].download_url + "</li>" );
 		}
+
+
+	    return tracks;
 
 	  });
 
