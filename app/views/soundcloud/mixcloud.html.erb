@@ -15,11 +15,9 @@ var access_url = "https://www.mixcloud.com/oauth/access_token?client_id=wpLF5wDy
 
 console.log(access_url); 
 
-$.getJSON({access_url, function(data){
+$.getJSON(access_url, function(data){
 	var access_token = data[0];
 	console.log(data);
-  }
-
 });
 
 
