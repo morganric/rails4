@@ -4,7 +4,7 @@
 <br/>
 <hr/>
 <br/>
-<%= button_to( 'mixcloud connect', "https://www.mixcloud.com/oauth/authorize?client_id=wpLF5wDyDUQYQJnrFY&redirect_uri=#{ mixcloud_post_url}", method:'post', remote: true )%>
+<%= link_to( 'mixcloud connect', "https://www.mixcloud.com/oauth/authorize?client_id=wpLF5wDyDUQYQJnrFY&redirect_uri=#{ mixcloud_post_url}", method:'post', target: "_blank" )%>
 
 <script src="http://connect.soundcloud.com/sdk.js"></script>
 <script>
