@@ -15,15 +15,26 @@ class SoundcloudController < ApplicationController
      @tracks = @client.get('/tracks', :limit => 10, :order => 'hotness')
     # print each link
 
-    @user = SoundCloud.new({
-      :client_id     => '0a5a8824df0c97aedb12448786a6f1de',
-      :client_secret => 'd57204e408d1cc467f403174788a2397',
-      :username      => 'morganric@gmail.com',
-      :password      => 'Lionking'
-    })
+    # @user = SoundCloud.new({
+    #   :client_id     => '0a5a8824df0c97aedb12448786a6f1de',
+    #   :client_secret => 'd57204e408d1cc467f403174788a2397',
+    #   :username      => 'morganric@gmail.com',
+    #   :password      => 'Lionking'
+    # })
 
-    @user_tracks = @user.get('/me/tracks')
+    # @user_tracks = @user.get('/me/tracks')
   
+  end
+
+  def mixcloud
+    mixcloud_code = params[:code]
+
+    if mixcloud_code
+      redirect_to "https://www.mixcloud.com/oauth/access_token?client_id=wpLF5wDyDUQYQJnrFY&redirect_uri=#{soundcloud_url}&client_secret=jnu8tAF89tecB99ztdautCUduWXnQTUj
+&code=#{mixcloud_code}"
+    else
+
+    end
   end
 
 

@@ -1,21 +1,10 @@
-<h1>Hi</h1>
+<h1></h1>
 
-
-<%= @user.get('/me').username %>
-
-
- <% @tracks.each do |track| %>
-     <%= link_to track.title, track.permalink_url %>
-   <% end %>
-
+<button id="soundcloud">Connect Soundcloud</button>
+<br/>
 <hr/>
-
- <% @user_tracks.each do |track| %>
-     <%= link_to track.title, track.download_url %>
-   <% end %>
-
-   JS
-
+<br/>
+<%= button_to( 'mixcloud connect', "https://www.mixcloud.com/oauth/authorize?client_id=wpLF5wDyDUQYQJnrFY&redirect_uri=#{ mixcloud_post_url}", method:'post', remote: true )%>
 
 <script src="http://connect.soundcloud.com/sdk.js"></script>
 <script>
@@ -25,10 +14,14 @@ SC.initialize({
   redirect_uri: 'http://floating-escarpment-5815.herokuapp.com/soundcloud'
 });
 
-// initiate auth popup
-SC.connect(function() {
-  SC.get('/me', function(me) { 
-    alert('Hello, ' + me.username); 
-  });
+$('#soundcloud').on('click', function() {
+
+	SC.connect(function() {
+	  SC.get('/me', function(me) { 
+	    $('h1').html('Hello, ' + me.username); 
+	  });
+	});	
+
 });
+
 </script>

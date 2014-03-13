@@ -9,6 +9,9 @@ Rails4::Application.routes.draw do
   get 'soundcloud' => 'soundcloud#index'
   post 'soundcloud' => 'soundcloud#index'
 
+  get 'soundcloud/mixcloud' => 'soundcloud#mixcloud', :as => 'mixcloud'
+  post 'soundcloud/mixcloud' => 'soundcloud#mixcloud', :as => 'mixcloud_post'
+
   resources :designs
   resources :mashtags
 
