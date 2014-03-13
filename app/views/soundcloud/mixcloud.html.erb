@@ -18,10 +18,11 @@ console.log(access_url);
 $.ajax({
   url: access_url,
   type: "GET",
+  jsonpCallback: 'callback',
   dataType: 'jsonp',
-  success: function(response) {
-	var access_token = response[0];
-	console.log(response);
+  success: function(data) {
+	var access_token = data[0];
+	console.log(data);
   }
 
 });
