@@ -27,11 +27,12 @@ class SoundcloudController < ApplicationController
   end
 
   def mixcloud
-    mixcloud_code = params[:code]
+    @mixcloud_code = params[:code]
 
-    if mixcloud_code
-      redirect_to "https://www.mixcloud.com/oauth/access_token?client_id=wpLF5wDyDUQYQJnrFY&redirect_uri=#{mixcloud_post_url}&client_secret=jnu8tAF89tecB99ztdautCUduWXnQTUj
-&code=#{mixcloud_code}"
+    if @mixcloud_code != ''
+      respond_to do |format|
+        format.js 
+      end
     else
       respond_to do |format|
         format.html 
