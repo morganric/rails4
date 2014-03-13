@@ -13,6 +13,7 @@ console.log(mixcloud_code);
 
 var access_url = "https://www.mixcloud.com/oauth/access_token?client_id=wpLF5wDyDUQYQJnrFY&redirect_uri=" + mixcloud_post_url + "&client_secret=jnu8tAF89tecB99ztdautCUduWXnQTUj&code="+mixcloud_code+"";
 
+console.log(access_url); 
 
 $.ajax({
   url: access_url,
