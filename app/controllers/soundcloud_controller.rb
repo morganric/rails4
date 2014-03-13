@@ -33,9 +33,11 @@ class SoundcloudController < ApplicationController
     require 'open-uri'
     require 'json'
 
-    url = "https://www.mixcloud.com/oauth/access_token?client_id=wpLF5wDyDUQYQJnrFY&redirect_uri=#{mixcloud_post_url}&client_secret=jnu8tAF89tecB99ztdautCUduWXnQTUj&code=#{@mixcloud_code}"
+    mixcloud_oauth_url = "https://www.mixcloud.com/oauth/access_token?client_id=wpLF5wDyDUQYQJnrFY&redirect_uri=#{mixcloud_post_url}&client_secret=jnu8tAF89tecB99ztdautCUduWXnQTUj&code=#{@mixcloud_code}"
 
-    @result = JSON.parse(open(url).read)
+    @result = JSON.parse(open(mixcloud_oauth_url).read)
+
+    @access_token = @result["access_token"]
 
     if @mixcloud_code != ''
       respond_to do |format|
