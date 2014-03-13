@@ -1,5 +1,7 @@
 <h1>Mixcloud api here </h1>
 
+<%= @result %>
+
 <p id="mixcloud_code" class="hidden"><%= @mixcloud_code %></p>
 <p id="mixcloud_post_url" class="hidden"><%= mixcloud_post_url %></p>
 
@@ -15,11 +17,15 @@ var access_url = "https://www.mixcloud.com/oauth/access_token?client_id=wpLF5wDy
 
 console.log(access_url); 
 
+var callback = function(data){
+		console.log(data);
+}
+
 $.ajax({
   url: access_url,
   type: "GET",
-  jsonpCallback: 'callback',
   dataType: 'jsonp',
+  jsonpCallback: 'callback',
   success: function(data) {
 	console.log(data);
   }

@@ -29,6 +29,14 @@ class SoundcloudController < ApplicationController
   def mixcloud
     @mixcloud_code = params[:code]
 
+
+    require 'open-uri'
+    require 'json'
+
+    url = "https://www.mixcloud.com/oauth/access_token?client_id=wpLF5wDyDUQYQJnrFY&redirect_uri=#{mixcloud_post_url}&client_secret=jnu8tAF89tecB99ztdautCUduWXnQTUj&code=#{@mixcloud_code}"
+
+    @result = JSON.parse(open(url).read)
+
     if @mixcloud_code != ''
       respond_to do |format|
         format.html
