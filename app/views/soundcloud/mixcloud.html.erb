@@ -11,11 +11,19 @@ console.log(mixcloud_post_url);
 var mixcloud_code = $("#mixcloud_code").html();
 console.log(mixcloud_code);
 
-var access_url = "https://www.mixcloud.com/oauth/access_token?client_id=wpLF5wDyDUQYQJnrFY&redirect_uri=" + mixcloud_post_url + "&client_secret=jnu8tAF89tecB99ztdautCUduWXnQTUj&code="+mixcloud_code;
+var access_url = "https://www.mixcloud.com/oauth/access_token?client_id=wpLF5wDyDUQYQJnrFY&redirect_uri=" + mixcloud_post_url + "&client_secret=jnu8tAF89tecB99ztdautCUduWXnQTUj&code="+mixcloud_code+"";
 
-$.get(access_url, function(token) {
-	var access_token = token[0];
-	console.log(token);
+
+$.ajax({
+  url: access_url,
+  type: "GET",
+  dataType: 'jsonp',
+  success: function(response) {
+	var access_token = response[0];
+	console.log(response);
+  }
+
 });
+
 
 </script>
