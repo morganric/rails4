@@ -28,10 +28,10 @@ $('#soundcloud').on('click', function() {
 	  SC.get('/me/tracks', function(tracks) { 
 	    var tracks = tracks;
 	    return tracks;
-		$.each(tracks, function( index, value ) {
-		  $('ul#tracks').append("<li>"+ index + ": " + value.download_url + "</li>" );
-		});
-
+		
+		for (var i = 0; i < tracks.length; i++) {
+			$('ul#tracks').append("<li>" + tracks[i].title + ": " + tracks[i].download_url + "</li>" );
+		}
 
 	  });
 
