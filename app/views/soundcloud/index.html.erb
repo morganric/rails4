@@ -8,7 +8,7 @@
 <br/>
 <hr/>
 <br/>
-<%= link_to( 'mixcloud connect', "https://www.mixcloud.com/oauth/authorize?client_id=wpLF5wDyDUQYQJnrFY&redirect_uri=#{ mixcloud_post_url}", method:'post', target: "_blank" )%>
+<%= link_to( 'mixcloud connect', "https://www.mixcloud.com/oauth/authorize?client_id=wpLF5wDyDUQYQJnrFY&redirect_uri=#{ mixcloud_post_url}", method:'post', target: "_blank", :id => "mixcloud", :class => "hidden btn"  )%>
 
 <script src="http://connect.soundcloud.com/sdk.js"></script>
 <script>
@@ -20,7 +20,10 @@ SC.initialize({
 
 $('#soundcloud').on('click', function() {
 
+	$(this).toggle();
+
 	SC.connect(function() {
+  	$('#mixcloud').toggle();
 	  SC.get('/me', function(me) { 
 	    $('h1').html('Hello, ' + me.username); 
 	  });
@@ -40,5 +43,6 @@ $('#soundcloud').on('click', function() {
 	});	
 
 });
+
 
 </script>
