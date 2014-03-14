@@ -23,33 +23,7 @@ class SoundcloudController < ApplicationController
   #   # })
 
   #   # @user_tracks = @user.get('/me/tracks')
-
-   @mixcloud_code = params[:code]
-
-
-    require 'open-uri'
-    require 'json'
-
-
-
-    if @mixcloud_code != nil
-
-        mixcloud_oauth_url = "https://www.mixcloud.com/oauth/access_token?client_id=wpLF5wDyDUQYQJnrFY&redirect_uri=#{mixcloud_post_url}&client_secret=jnu8tAF89tecB99ztdautCUduWXnQTUj&code=#{@mixcloud_code}"
-
-        @result = JSON.parse(open(mixcloud_oauth_url).read)
-
-        @access_token = @result["access_token"]
-
-
-      respond_to do |format|
-        format.html
-      end
-    else
-      respond_to do |format|
-        format.html 
-      end
-    end
-
+   @access_token = params[:access_token]
 
   
   end
@@ -67,10 +41,8 @@ class SoundcloudController < ApplicationController
 
     @access_token = @result["access_token"]
 
-    if @mixcloud_code != ''
-      respond_to do |format|
-        format.html
-      end
+    if @mixcloud_code != nil
+      redirect_to soundcloud_path(:access_token => @access_token)
     else
       respond_to do |format|
         format.html 

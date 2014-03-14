@@ -4,11 +4,17 @@
 	
 </ul>
 
-<span id="soundcloud"><%= image_tag 'http://connect.soundcloud.com/2/btn-connect-sc-l.png' %></span>
+<span id="soundcloud" class=""><%= image_tag 'http://connect.soundcloud.com/2/btn-connect-sc-l.png' %></span>
 <br/>
 <hr/>
 <br/>
-<%= link_to( 'mixcloud connect', "https://www.mixcloud.com/oauth/authorize?client_id=wpLF5wDyDUQYQJnrFY&redirect_uri=#{ soundcloud_url}", method:'post', target: "_blank", :id => "mixcloud", :class => "hidden btn"  )%>
+<%= link_to( 'mixcloud connect', "https://www.mixcloud.com/oauth/authorize?client_id=wpLF5wDyDUQYQJnrFY&redirect_uri=#{ mixcloud_post_url}", method:'post', target: "_blank", :id => "mixcloud", :class => "btn"  )%>
+
+
+<h1>Mixcloud api here </h1>
+
+<%= @result %>
+<%= @access_token %>
 
 <script src="http://connect.soundcloud.com/sdk.js"></script>
 <script>
@@ -23,7 +29,6 @@ $('#soundcloud').on('click', function() {
 	$(this).toggle();
 
 	SC.connect(function() {
-	  	$('#mixcloud').removeClass('hidden');
 	  SC.get('/me', function(me) { 
 	    $('h1').html('Hello, ' + me.username); 
 	  });
