@@ -58,7 +58,7 @@ class UploadController < ApplicationController
     @mixcloud_access_token = @result["access_token"]
 
     if @mixcloud_code != nil
-      redirect_to soundcloud_path(:mixcloud_access_token => @mixcloud_access_token)
+      redirect_to upload_path(:mixcloud_access_token => @mixcloud_access_token)
     else
       respond_to do |format|
         format.html 
