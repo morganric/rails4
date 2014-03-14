@@ -1,10 +1,18 @@
 <h1></h1>
 
 <ul id="tracks">
+	
 </ul>
 
+<!-- <span id="soundcloud" class=""><%= image_tag 'http://connect.soundcloud.com/2/btn-connect-sc-l.png' %></span>
+<br/>
+<hr/>
+<br/> -->
 <%= link_to "soundcloud", soundcloud_path %>
-<%= link_to "mixcloud", mixcloud_path %>
+<%= link_to( 'mixcloud connect', "https://www.mixcloud.com/oauth/authorize?client_id=wpLF5wDyDUQYQJnrFY&redirect_uri=#{ mixcloud_post_url}", method:'post', target: "_blank", :id => "mixcloud", :class => "btn"  )%>
+
+<p id="soundcloud_access_token" class="hidden"><%= @soundcloud_access_token %></p>
+<p id="mixcloud_access_token" class="hidden"><%= @mixcloud_access_token %></p>
 
 <script src="http://connect.soundcloud.com/sdk.js"></script>
 <script>
