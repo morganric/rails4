@@ -54,10 +54,10 @@ class UploadController < ApplicationController
 
     @result = JSON.parse(open(mixcloud_oauth_url).read)
 
-    @access_token = @result["access_token"]
+    @mixcloud_access_token = @result["access_token"]
 
     if @mixcloud_code != nil
-      redirect_to soundcloud_path(:access_token => @access_token)
+      redirect_to soundcloud_path(:mixcloud_access_token => @mixcloud_access_token)
     else
       respond_to do |format|
         format.html 
