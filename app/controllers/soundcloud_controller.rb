@@ -29,7 +29,7 @@ class SoundcloudController < ApplicationController
   # create client object with app credentials
   client = Soundcloud.new(:client_id => '0a5a8824df0c97aedb12448786a6f1de',
                           :client_secret => 'd57204e408d1cc467f403174788a2397',
-                          :redirect_uri => '<%= mixcloud_url %>')
+                          :redirect_uri => "#{mixcloud_url}")
 
   # redirect user to authorize URL
   redirect_to client.authorize_url()
