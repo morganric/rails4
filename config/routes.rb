@@ -13,11 +13,14 @@ Rails4::Application.routes.draw do
 
   # end
 
-    get 'soundcloud' => 'soundcloud#index'
-    post 'soundcloud' => 'soundcloud#index'
+    get 'upload' => 'upload#index', :as => 'upload'
+    post 'upload' => 'upload#index'
 
-    get 'soundcloud/mixcloud' => 'soundcloud#mixcloud', :as => 'mixcloud'
-    post 'soundcloud/mixcloud' => 'soundcloud#mixcloud', :as => 'mixcloud_post'
+    get 'upload/mixcloud' => 'upload#mixcloud', :as => 'mixcloud'
+    post 'upload/mixcloud' => 'upload#mixcloud', :as => 'mixcloud_post'
+
+    get 'upload/soundcloud' => 'upload#soundcloud', :as => 'soundcloud'
+    post 'upload/soundcloud' => 'upload#soundcloud', :as => 'soundcloud_post'
 
   resources :designs
   resources :mashtags
