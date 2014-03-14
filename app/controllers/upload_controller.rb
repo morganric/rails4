@@ -26,9 +26,9 @@ class UploadController < ApplicationController
 
   # require 'soundcloud'
 
+  soundcloud_code = params[:code]
+  soundcloud_access_token = params[:access_token]
 
-
-  
   end
 
   def soundcloud
