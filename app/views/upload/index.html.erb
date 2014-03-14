@@ -8,7 +8,9 @@
 <br/>
 <hr/>
 <br/> -->
-<%= link_to "soundcloud", soundcloud_path %>
+
+<%= link_to( 'soundcloud connect', @soundcloud_client.authorize_url(), method:'post', target: "_blank", :id => "soundcloud", :class => "btn" )%>
+
 <%= link_to( 'mixcloud connect', "https://www.mixcloud.com/oauth/authorize?client_id=wpLF5wDyDUQYQJnrFY&redirect_uri=#{ mixcloud_post_url}", method:'post', target: "_blank", :id => "mixcloud", :class => "btn"  )%>
 
 <p id="soundcloud_access_token" class="hidden"><%= @soundcloud_access_token %></p>
@@ -17,37 +19,37 @@
 <script src="http://connect.soundcloud.com/sdk.js"></script>
 <script>
 // initialize client with app credentials
-SC.initialize({
-  client_id: '	',
-  redirect_uri: 'http://floating-escarpment-5815.herokuapp.com/soundcloud'
-});
+// SC.initialize({
+//   client_id: '	',
+//   redirect_uri: 'http://floating-escarpment-5815.herokuapp.com/soundcloud'
+// });
 
-$('#soundcloud').on('click', function() {
+// $('#soundcloud').on('click', function() {
 
-	$(this).toggle();
+// 	$(this).toggle();
 
-	SC.connect(function() {
-	  SC.get('/me', function(me) { 
-	    $('h1').html('Hello, ' + me.username); 
-	  });
+// 	SC.connect(function() {
+// 	  SC.get('/me', function(me) { 
+// 	    $('h1').html('Hello, ' + me.username); 
+// 	  });
 
-	  SC.get('/me/tracks', function(tracks) { 
-	    var tracks = tracks;
-	    var access_token = $("#access_token").html();
+// 	  SC.get('/me/tracks', function(tracks) { 
+// 	    var tracks = tracks;
+// 	    var access_token = $("#access_token").html();
 		
-		for (var i = 0; i < tracks.length; i++) {
-			var link = "https://api.mixcloud.com/upload/?access_token="+access_token+"&mp3=" + tracks[i].download_url +"&name=" + tracks[i].title + "&sections-1-artist=ArtistName&sections-1-song=SongName";
-			$('ul#tracks').append("<li><a href='" + link + "' >" + tracks[i].title + "</a></li>" );
-		}
+// 		for (var i = 0; i < tracks.length; i++) {
+// 			var link = "https://api.mixcloud.com/upload/?access_token="+access_token+"&mp3=" + tracks[i].download_url +"&name=" + tracks[i].title + "&sections-1-artist=ArtistName&sections-1-song=SongName";
+// 			$('ul#tracks').append("<li><a href='" + link + "' >" + tracks[i].title + "</a></li>" );
+// 		}
 
 
-	    return tracks;
+// 	    return tracks;
 
-	  });
+// 	  });
 
-	});	
+// 	});	
 
-});
+// });
 
 
 </script>
