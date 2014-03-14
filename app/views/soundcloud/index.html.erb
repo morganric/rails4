@@ -10,9 +10,6 @@
 <br/>
 <%= link_to( 'mixcloud connect', "https://www.mixcloud.com/oauth/authorize?client_id=wpLF5wDyDUQYQJnrFY&redirect_uri=#{ mixcloud_post_url}", method:'post', target: "_blank", :id => "mixcloud", :class => "btn"  )%>
 
-
-<h1>Mixcloud api here </h1>
-
 <%= @result %>
 <%= @access_token %>
 
@@ -37,7 +34,8 @@ $('#soundcloud').on('click', function() {
 	    var tracks = tracks;
 		
 		for (var i = 0; i < tracks.length; i++) {
-			$('ul#tracks').append("<li>" + tracks[i].title + ": " + tracks[i].download_url + "</li>" );
+			var link = "https://api.mixcloud.com/upload/?mp3=" + tracks[i].download_url +"&name=" + tracks[i].title + "&sections-1-artist=ArtistName&sections-1-song=SongName";
+			$('ul#tracks').append("<li><a href='" + link + "' />" + tracks[i].title + "</a></li>" );
 		}
 
 
