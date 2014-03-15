@@ -1,67 +1,21 @@
-class MashtagsController < ApplicationController
+class Embed::MashtagsController < EmbedController
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
   skip_before_filter :verify_authenticity_token
 
-  before_filter :resolve_layout, only: :show
-
   include ApplicationHelper
   include MashtagsHelper
-
-  layout :resolve_layout
-
-  # some definitions
 
   def index
     @mashtags = Mashtag.all.order(:views).reverse
     @mashtag = Mashtag.first
     @params = params
     signed_request = params[:signed_request]
-
-      # @page_id = fb_page?
-
-    # if signed_request
-    #   @signed_request = decode_data(signed_request)
-
-    #   if @signed_request["page"] != nil
-    #     page_id = @signed_request["page"]["id"]
-    #     mashtag_id = Mashtag.where(:facebook_page_id => page_id)[0]["id"]
-    #     @mashtag = Competition.find(mashtag_id)
-    #     redirect_to mashtag_path(@mashtag)
-    #   else
-    #     respond_to do |format|
-    #       format.html 
-    #     end
-    #   end
-
-    # else
-    #   @mashtag = Mashtag.first
-
-    # end
-
-    # require 'koala'
-    # @mashtags = Mashtag.all.reverse
-    # @mashtag = @mashtags.last
-    # @sg = params[:signed_request]
-    # @params = params
-    # oauth = Koala::Facebook::OAuth.new(1412697118982924, 'ba3b456261f4e9dfed0beb91a73000b3')
-    # if params[:signed_request]
-    #   signed_request = oauth.parse_signed_request(params["signed_request"])
-    # end
-
-    # if params[:signed_request] != nil
-    #   @signed_request = decode_data(params[:signed_request])
-
-    #   if @signed_request["page"] != nil
-    #     page_id = @signed_request["page"]["id"]
-    #     @mashtag = Mashtag.where(:facebook_page_id => page_id)[0]["mashtag_id"]
-    #   end
-    # end
     
       respond_to do |format|
-        format.html  {render layout: "mashtag"}
+        format.html
       end
 
   end
@@ -70,7 +24,7 @@ class MashtagsController < ApplicationController
     @mashtags = Mashtag.all.reverse
 
     respond_to do |format|
-      format.html {render layout: "mashtag"}
+      format.html
     end
   end
 
@@ -81,21 +35,8 @@ class MashtagsController < ApplicationController
     cloud(@mashtag)
     views(@mashtag)
 
-    respond_to do |format|
-      format.html { render layout: "mashtag" }
-    end
-
-  end
-
-  def embed
-    @mashtag = Mashtag.friendly.find(params[:id])
-    @mixcloud_user = Mixcloud::User.new("http://api.mixcloud.com/#{@mashtag.user_name}")
-
-    cloud(@mashtag)
-    views(@mashtag)
-
-    respond_to do |format|
-      format.html { render layout: "embed" }
+    redirect_to do |format|
+      format.html   { :controller => 'mashtags', :action => 'show', :layout => 'embed'}
     end
 
   end
@@ -122,12 +63,12 @@ class MashtagsController < ApplicationController
     if @mashtag.save
       flash[:notice] = "Facebook successfully created"
       respond_to do |format|
-        format.js { render layout: "mashtag" }
+        format.js
       end
     else
       flash[:notice] = "Facebookk not created"
       respond_to do |format|
-        format.js { render layout: "mashtag" }
+        format.js 
       end
     end
 
@@ -168,13 +109,6 @@ class MashtagsController < ApplicationController
     search = Mixcloud::Search.find_artist(term)
     return search
   end
-
-  private
-
-  def resolve_layout
-    # some logic depending on current request
-    @path_to_layout = request.path.split('/')[1]
-    return @path_to_layout
-  end
+ 
 
 end
