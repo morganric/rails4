@@ -14,6 +14,11 @@
           </div>
           <br/>
             <div id="cloud" style="width: 500px; height: 400px;"></div>
+            <div>
+              <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" data-url="<%= url_for(:only_path => false).html_safe %>" data-text="#Mashtag your @mixcloud here <%= url_for(:only_path => false).html_safe %> #Mashtag" data-via="mashtaggin">Tweet</a>
+              <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+            </div>
             <p class="hidden">
             <%= @params %>
             <br/>
