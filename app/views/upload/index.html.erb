@@ -4,12 +4,12 @@
 	
 </ul>
 
-<span id="soundcloud" class=""><%= image_tag 'http://connect.soundcloud.com/2/btn-connect-sc-l.png' %></span>
+<!-- <span id="soundcloud" class=""><%#= image_tag 'http://connect.soundcloud.com/2/btn-connect-sc-l.png' %></span>
 <br/>
 <hr/>
-<br/>
+<br/> -->
 
-<%#= link_to( 'soundcloud connect', @soundcloud_client.authorize_url(), method:'post', target: "_blank", :id => "soundcloud", :class => "btn" )%>
+<%= link_to( 'soundcloud connect', @soundcloud_client.authorize_url(), method:'post', target: "_blank", :id => "soundcloud", :class => "btn" )%>
 
 <%= link_to( 'mixcloud connect', "https://www.mixcloud.com/oauth/authorize?client_id=wpLF5wDyDUQYQJnrFY&redirect_uri=#{ mixcloud_post_url}", method:'post', target: "_blank", :id => "mixcloud", :class => "btn"  )%>
 
@@ -19,37 +19,39 @@
 <script src="http://connect.soundcloud.com/sdk.js"></script>
 <script>
 // initialize client with app credentials
-SC.initialize({
-  client_id: '0a5a8824df0c97aedb12448786a6f1de',
-  redirect_uri: 'http://floating-escarpment-5815.herokuapp.com/upload/soundcloud'
-});
 
-$('#soundcloud').on('click', function() {
 
-	$(this).toggle();
+// SC.initialize({
+//   client_id: '0a5a8824df0c97aedb12448786a6f1de',
+//   redirect_uri: 'http://floating-escarpment-5815.herokuapp.com/upload/soundcloud'
+// });
 
-	SC.connect(function() {
-	  SC.get('/me', function(me) { 
-	    $('h1').html('Hello, ' + me.username); 
-	  });
+// $('#soundcloud').on('click', function() {
 
-	  SC.get('/me/tracks', function(tracks) { 
-	    var tracks = tracks;
-	    var access_token = $("#access_token").html();
+// 	$(this).toggle();
+
+// 	SC.connect(function() {
+// 	  SC.get('/me', function(me) { 
+// 	    $('h1').html('Hello, ' + me.username); 
+// 	  });
+
+// 	  SC.get('/me/tracks', function(tracks) { 
+// 	    var tracks = tracks;
+// 	    var access_token = $("#access_token").html();
 		
-		for (var i = 0; i < tracks.length; i++) {
-			var link = "https://api.mixcloud.com/upload/?access_token="+access_token+"&mp3=" + tracks[i].download_url +"&name=" + tracks[i].title + "&sections-1-artist=ArtistName&sections-1-song=SongName";
-			$('ul#tracks').append("<li><a href='" + link + "' >" + tracks[i].title + "</a></li>" );
-		}
+// 		for (var i = 0; i < tracks.length; i++) {
+// 			var link = "https://api.mixcloud.com/upload/?access_token="+access_token+"&mp3=" + tracks[i].download_url +"&name=" + tracks[i].title + "&sections-1-artist=ArtistName&sections-1-song=SongName";
+// 			$('ul#tracks').append("<li><a href='" + link + "' >" + tracks[i].title + "</a></li>" );
+// 		}
 
 
-	    return tracks;
+// 	    return tracks;
 
-	  });
+// 	  });
 
-	});	
+// 	});	
 
-});
+// });
 
 
 </script>
