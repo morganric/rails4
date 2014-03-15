@@ -5,13 +5,8 @@ class MashtagsController < ApplicationController
 
   skip_before_filter :verify_authenticity_token
 
-  before_filter :resolve_layout, only: :show
-
   include ApplicationHelper
   include MashtagsHelper
-
-  layout :resolve_layout
-
   # some definitions
 
   def index
@@ -167,14 +162,6 @@ class MashtagsController < ApplicationController
   def search_mixcoud term 
     search = Mixcloud::Search.find_artist(term)
     return search
-  end
-
-  private
-
-  def resolve_layout
-    # some logic depending on current request
-    @path_to_layout = request.path.split('/')[1]
-    return @path_to_layout
   end
 
 end
