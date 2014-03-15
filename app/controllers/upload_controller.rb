@@ -28,6 +28,7 @@ class UploadController < ApplicationController
 
 
   @mixcloud_access_token = params[:mixcloud_access_token]
+  @soundcloud_access_token = params[:soundcloud_access_token]
 
   @soundcloud_client = Soundcloud.new(:client_id => '0a5a8824df0c97aedb12448786a6f1de',
                           :client_secret => 'd57204e408d1cc467f403174788a2397',
@@ -43,7 +44,7 @@ class UploadController < ApplicationController
   @soundcloud_access_token = params[:access_token]
   # redirect user to authorize URL
 
-  if @soundcloud_access_token != nil
+  if @soundcloud_code != nil
       redirect_to upload_path(:soundcloud_access_token => @soundcloud_access_token)
     else
       respond_to do |format|
