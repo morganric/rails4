@@ -43,7 +43,7 @@ class UploadController < ApplicationController
   @soundcloud_access_token = params[:access_token]
   # redirect user to authorize URL
 
-  if @soundcloud_code != nil
+  if @soundcloud_access_token != nil
       redirect_to upload_path(:soundcloud_access_token => @soundcloud_access_token)
     else
       respond_to do |format|
